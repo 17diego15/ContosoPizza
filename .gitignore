@@ -1,0 +1,23 @@
+# Exclude standard binary and intermediate file types for C# projects
+*.exe
+*.dll
+*.pdb
+*.obj
+*.log
+*.cache
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Exclude the bin and obj folders
+**/[Bb]in/
+**/[Oo]bj/
+
+# Exclude files related to Visual Studio Code
+.vscode/
+
+# Exclude other files/folders that are usually not part of the source
+packages/
+*.nupkg
+# Add other exclusions as per project needs
