@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Business\\ContosoPizza.Business.csproj": {}
+    "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Business\\ContosoPizza.Business.csproj": {}
   },
   "projects": {
-    "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Business\\ContosoPizza.Business.csproj": {
+    "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Business\\ContosoPizza.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Business\\ContosoPizza.Business.csproj",
+        "projectUniqueName": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Business\\ContosoPizza.Business.csproj",
         "projectName": "ContosoPizza.Business",
-        "projectPath": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Business\\ContosoPizza.Business.csproj",
+        "projectPath": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Business\\ContosoPizza.Business.csproj",
         "packagesPath": "C:\\Users\\S2-PC00\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Business\\obj\\",
+        "outputPath": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Data\\ContosoPizza.Data.csproj": {
-                "projectPath": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Data\\ContosoPizza.Data.csproj"
+              "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Data\\ContosoPizza.Data.csproj": {
+                "projectPath": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Data\\ContosoPizza.Data.csproj"
               },
-              "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj": {
-                "projectPath": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj"
+              "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj": {
+                "projectPath": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj"
               }
             }
           }
@@ -70,14 +70,14 @@
         }
       }
     },
-    "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Data\\ContosoPizza.Data.csproj": {
+    "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Data\\ContosoPizza.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Data\\ContosoPizza.Data.csproj",
+        "projectUniqueName": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Data\\ContosoPizza.Data.csproj",
         "projectName": "ContosoPizza.Data",
-        "projectPath": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Data\\ContosoPizza.Data.csproj",
+        "projectPath": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Data\\ContosoPizza.Data.csproj",
         "packagesPath": "C:\\Users\\S2-PC00\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Data\\obj\\",
+        "outputPath": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -98,8 +98,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj": {
-                "projectPath": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj"
+              "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj": {
+                "projectPath": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj"
               }
             }
           }
@@ -139,14 +139,14 @@
         }
       }
     },
-    "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj": {
+    "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj",
+        "projectUniqueName": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj",
         "projectName": "ContosoPizza.Model",
-        "projectPath": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj",
+        "projectPath": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj",
         "packagesPath": "C:\\Users\\S2-PC00\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\S2-PC00\\Desktop\\ContosoPizza\\ContosoPizza\\Model\\obj\\",
+        "outputPath": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -90,3 +90,15 @@ C:\Users\S2-PC00\Desktop\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\Contos
 C:\Users\S2-PC00\Desktop\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\refint\ContosoPizza.Model.dll
 C:\Users\S2-PC00\Desktop\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\ContosoPizza.Model.pdb
 C:\Users\S2-PC00\Desktop\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\ref\ContosoPizza.Model.dll
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\bin\Debug\net7.0\ContosoPizza.Model.deps.json
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\bin\Debug\net7.0\ContosoPizza.Model.dll
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\bin\Debug\net7.0\ContosoPizza.Model.pdb
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\ContosoPizza.Model.csproj.AssemblyReference.cache
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\ContosoPizza.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\ContosoPizza.Model.AssemblyInfoInputs.cache
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\ContosoPizza.Model.AssemblyInfo.cs
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\ContosoPizza.Model.csproj.CoreCompileInputs.cache
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\ContosoPizza.Model.dll
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\refint\ContosoPizza.Model.dll
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\ContosoPizza.Model.pdb
+C:\Users\S2-PC00\Downloads\Nueva carpeta\ContosoPizza\ContosoPizza\Model\obj\Debug\net7.0\ref\ContosoPizza.Model.dll

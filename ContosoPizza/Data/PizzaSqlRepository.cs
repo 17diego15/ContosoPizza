@@ -29,7 +29,7 @@ public class PizzaSqlRepository : IPizzaRepository
         {
             connection.Open();
 
-            var sqlString = "SELECT PizzaId, Nombre, Precio, IsGlutenFree FROM Pizza WHERE PizzaId=" + id;
+            var sqlString = "SELECT PizzaId, Nombre, Precio, IsGluten FROM Pizza WHERE PizzaId=" + id;
             var command = new SqlCommand(sqlString, connection);
 
             using (var reader = command.ExecuteReader())
@@ -41,7 +41,7 @@ public class PizzaSqlRepository : IPizzaRepository
                         Id = Convert.ToInt32(reader["PizzaId"]),
                         Name = reader["Nombre"].ToString(),
                         Price = Convert.ToDecimal(reader["Precio"]),
-                        IsGlutenFree = Convert.ToBoolean(reader["IsGlutenFree"])    
+                        IsGlutenFree = Convert.ToBoolean(reader["IsGluten"])    
                         //Balance = (decimal)reader[2]
                     };
                 }
