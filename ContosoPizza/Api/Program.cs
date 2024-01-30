@@ -10,15 +10,18 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<IPizzaRepository,PizzaRepository>();
+
+//builder.Services.AddSingleton<IPizzaRepository,PizzaRepository>();
 builder.Services.AddSingleton<IPedidoRepository,PedidoRepository>();
 builder.Services.AddSingleton<IUsuarioRepository,UsuarioRepository>();
-builder.Services.AddSingleton<IIngredientesRepository,IngredientesRepository>();
+//builder.Services.AddSingleton<IIngredientesRepository,IngredientesRepository>();
 
 var connectionString = builder.Configuration.GetConnectionString("ServerDB");
 builder.Services.AddScoped<IPizzaRepository, PizzaSqlRepository>(serviceProvider => 
     new PizzaSqlRepository(connectionString));
 
+builder.Services.AddScoped<IIngredientesRepository, IngredientesSqlRepository>(serviceProvider => 
+    new IngredientesSqlRepository(connectionString));
 
 
 builder.Services.AddScoped<PizzaService>();
