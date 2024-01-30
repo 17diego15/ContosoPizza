@@ -18,6 +18,13 @@ CREATE TABLE Ingrediente (
     Calorias DECIMAL(18, 2) NOT NULL
 );
 
+CREATE TABLE PizzaIngrediente (
+    PizzaId INT,
+    IngredienteId INT,
+    FOREIGN KEY (PizzaId) REFERENCES Pizza(PizzaId),
+    FOREIGN KEY (IngredienteId) REFERENCES Ingrediente(IngredienteId)
+);
+
 
 
  INSERT INTO Pizza (Nombre, Precio, IsGluten)
@@ -27,3 +34,8 @@ CREATE TABLE Ingrediente (
 INSERT INTO Ingrediente (Nombre, Precio, Calorias)
  VALUES ('Queso', 1.5, 12),
         ('Salsa barbacoa', 0.75, 1);
+
+INSERT INTO PizzaIngrediente (PizzaId, IngredienteId) 
+    VALUES (1, 1); 
+INSERT INTO PizzaIngrediente (PizzaId, IngredienteId) 
+    VALUES (1, 2); 

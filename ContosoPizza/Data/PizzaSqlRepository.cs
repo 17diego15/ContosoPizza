@@ -48,30 +48,61 @@ public class PizzaSqlRepository : IPizzaRepository
 
     public Pizza? Get(int id)
     {
-        var pizza = new Pizza();
+        Pizza pizza = null;
 
         using (var connection = new SqlConnection(_connectionString))
         {
             connection.Open();
 
-            var sqlString = "SELECT PizzaId, Nombre, Precio, IsGluten FROM Pizza WHERE PizzaId=" + id;
-            var command = new SqlCommand(sqlString, connection);
-
-            using (var reader = command.ExecuteReader())
+            // Obtener los detalles de la pizza
+            var pizzaSqlString = "SELECT PizzaId, Nombre, Precio, IsGluten FROM Pizza WHERE PizzaId = @PizzaId";
+            using (var pizzaCommand = new SqlCommand(pizzaSqlString, connection))
             {
-                while (reader.Read())
+                pizzaCommand.Parameters.AddWithValue("@PizzaId", id);
+                using (var pizzaReader = pizzaCommand.ExecuteReader())
                 {
-                    pizza = new Pizza
+                    if (pizzaReader.Read()) // Si hay una pizza, solo debería haber una debido al PRIMARY KEY
                     {
-                        Id = Convert.ToInt32(reader["PizzaId"]),
-                        Name = reader["Nombre"].ToString(),
-                        Price = Convert.ToDecimal(reader["Precio"]),
-                        IsGlutenFree = Convert.ToBoolean(reader["IsGluten"])
-                        //Balance = (decimal)reader[2]
-                    };
+                        pizza = new Pizza
+                        {
+                            Id = Convert.ToInt32(pizzaReader["PizzaId"]),
+                            Name = pizzaReader["Nombre"].ToString(),
+                            Price = Convert.ToDecimal(pizzaReader["Precio"]),
+                            IsGlutenFree = Convert.ToBoolean(pizzaReader["IsGluten"]),
+                            Ingredients = new List<Ingrediente>() // Inicializar la lista de ingredientes
+                        };
+                    }
                 }
             }
 
+            // Si encontramos una pizza, ahora obtenemos sus ingredientes
+            if (pizza != null)
+            {
+                var ingredientsSqlString = @"
+                SELECT i.IngredienteId, i.Nombre, i.Precio, i.Calorias
+                FROM Ingrediente i
+                INNER JOIN PizzaIngrediente pi ON i.IngredienteId = pi.IngredienteId
+                WHERE pi.PizzaId = @PizzaId";
+
+                using (var ingredientsCommand = new SqlCommand(ingredientsSqlString, connection))
+                {
+                    ingredientsCommand.Parameters.AddWithValue("@PizzaId", id);
+                    using (var ingredientsReader = ingredientsCommand.ExecuteReader())
+                    {
+                        while (ingredientsReader.Read())
+                        {
+                            var ingrediente = new Ingrediente
+                            {
+                                Id = Convert.ToInt32(ingredientsReader["IngredienteId"]),
+                                Nombre = ingredientsReader["Nombre"].ToString(),
+                                Precio = Convert.ToDecimal(ingredientsReader["Precio"]),
+                                Calorias = Convert.ToInt32(ingredientsReader["Calorias"])
+                            };
+                            pizza.Ingredients.Add(ingrediente);
+                        }
+                    }
+                }
+            }
         }
 
         return pizza;
@@ -93,7 +124,7 @@ public class PizzaSqlRepository : IPizzaRepository
             command.ExecuteNonQuery();
         }
     }
-    
+
     public void Delete(int id)
     {
         using (var connection = new SqlConnection(_connectionString))
@@ -105,7 +136,7 @@ public class PizzaSqlRepository : IPizzaRepository
 
             command.Parameters.AddWithValue("@PizzaId", id);
 
-            command.ExecuteNonQuery(); 
+            command.ExecuteNonQuery();
         }
     }
 
