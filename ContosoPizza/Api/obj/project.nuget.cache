@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dQ5nkTSlNZ9j10DTZuD4n48F66Kuq2g7E1jARMnS5WaNCw1IS5WpcNpuDTiRKLnSuKlGOEFMEHZwFKzBGSU6PQ==",
+  "dgSpecHash": "zE/KZZQECa1+NfHs8kiHNYdMgrTW422+t8B/Vk9aRoJfWzSrdm7kG/5NiThrAC8BopYoxWbVEyYoY7TS49abbA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\S2-PC00\\Downloads\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Api\\ContosoPizza.Api.csproj",
+  "projectFilePath": "C:\\Users\\S2-PC00\\Desktop\\Nueva carpeta\\ContosoPizza\\ContosoPizza\\Api\\ContosoPizza.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\S2-PC00\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.13\\microsoft.aspnetcore.openapi.7.0.13.nupkg.sha512",
     "C:\\Users\\S2-PC00\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

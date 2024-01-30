@@ -12,5 +12,5 @@ CREATE TABLE Pizza (
 );
 
  INSERT INTO Pizza (Nombre, Precio, IsGluten)
- VALUES ('Barbacoa', 10.99, true),
-        ('Cuatro quesos', 10.99, true);
+ VALUES ('Barbacoa', 10.99, 1),
+        ('Cuatro quesos', 10.99, 1);
