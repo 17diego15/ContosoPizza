@@ -12,8 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //builder.Services.AddSingleton<IPizzaRepository,PizzaRepository>();
-builder.Services.AddSingleton<IPedidoRepository,PedidoRepository>();
-builder.Services.AddSingleton<IUsuarioRepository,UsuarioRepository>();
+//builder.Services.AddSingleton<IPedidoRepository,PedidoRepository>();
+//builder.Services.AddSingleton<IUsuarioRepository,UsuarioRepository>();
 //builder.Services.AddSingleton<IIngredientesRepository,IngredientesRepository>();
 
 var connectionString = builder.Configuration.GetConnectionString("ServerDB");
@@ -23,9 +23,12 @@ builder.Services.AddScoped<IPizzaRepository, PizzaSqlRepository>(serviceProvider
 builder.Services.AddScoped<IIngredientesRepository, IngredientesSqlRepository>(serviceProvider => 
     new IngredientesSqlRepository(connectionString));
 
+ builder.Services.AddScoped<IUsuarioRepository, UsuarioSqlRepository>(serviceProvider => 
+     new UsuarioSqlRepository(connectionString));
+
 
 builder.Services.AddScoped<PizzaService>();
-builder.Services.AddScoped<PedidoService>();
+//builder.Services.AddScoped<PedidoService>();  //añadir despues
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<IngredientesService>();
 
