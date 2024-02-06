@@ -24,9 +24,8 @@ public class PizzaSqlRepository : IPizzaRepository
         {
             connection.Open();
 
-            var sqlString = "SELECT PizzaId, Nombre, Precio, IsGluten FROM Pizza";
-            var command = new SqlCommand(sqlString, connection);
-
+            var pizzaSqlString = "SELECT PizzaId, Nombre, Precio, IsGluten FROM Pizza";
+            using (var command = new SqlCommand(pizzaSqlString, connection))
             using (var reader = command.ExecuteReader())
             {
                 while (reader.Read())
@@ -36,13 +35,40 @@ public class PizzaSqlRepository : IPizzaRepository
                         Id = Convert.ToInt32(reader["PizzaId"]),
                         Name = reader["Nombre"].ToString(),
                         Price = Convert.ToDecimal(reader["Precio"]),
-                        IsGlutenFree = Convert.ToBoolean(reader["IsGluten"])
+                        IsGlutenFree = Convert.ToBoolean(reader["IsGluten"]),
+                        Ingredients = new List<Ingrediente>()
                     };
                     pizzas.Add(pizza);
                 }
             }
-        }
 
+            var ingredientsSqlString = @"
+            SELECT pi.PizzaId, i.IngredienteId, i.Nombre, i.Precio, i.Calorias
+            FROM Ingrediente i
+            INNER JOIN PizzaIngrediente pi ON i.IngredienteId = pi.IngredienteId
+            ORDER BY pi.PizzaId";
+
+            using (var ingredientsCommand = new SqlCommand(ingredientsSqlString, connection))
+            using (var ingredientsReader = ingredientsCommand.ExecuteReader())
+            {
+                while (ingredientsReader.Read())
+                {
+                    var pizzaId = Convert.ToInt32(ingredientsReader["PizzaId"]);
+                    var pizza = pizzas.FirstOrDefault(p => p.Id == pizzaId);
+                    if (pizza != null)
+                    {
+                        var ingrediente = new Ingrediente
+                        {
+                            Id = Convert.ToInt32(ingredientsReader["IngredienteId"]),
+                            Nombre = ingredientsReader["Nombre"].ToString(),
+                            Precio = Convert.ToDecimal(ingredientsReader["Precio"]),
+                            Calorias = Convert.ToInt32(ingredientsReader["Calorias"])
+                        };
+                        pizza.Ingredients.Add(ingrediente);
+                    }
+                }
+            }
+        }
         return pizzas;
     }
 
@@ -76,7 +102,11 @@ public class PizzaSqlRepository : IPizzaRepository
 
             if (pizza != null)
             {
-                var ingredientsSqlString = "SELECT i.IngredienteId, i.Nombre, i.Precio, i.Calorias FROM Ingrediente i INNER JOIN PizzaIngrediente pi ON i.IngredienteId = pi.IngredienteId WHERE pi.PizzaId = @PizzaId";
+                var ingredientsSqlString = @"
+                SELECT i.IngredienteId, i.Nombre, i.Precio, i.Calorias 
+                FROM Ingrediente i 
+                INNER JOIN PizzaIngrediente pi ON i.IngredienteId = pi.IngredienteId 
+                WHERE pi.PizzaId = @PizzaId";
 
                 using (var ingredientsCommand = new SqlCommand(ingredientsSqlString, connection))
                 {
@@ -98,7 +128,6 @@ public class PizzaSqlRepository : IPizzaRepository
                 }
             }
         }
-
         return pizza;
     }
 
@@ -124,7 +153,6 @@ public class PizzaSqlRepository : IPizzaRepository
 
                 ingredientesCommand.Parameters.AddWithValue("@PizzaId", pizzaId);
                 ingredientesCommand.Parameters.AddWithValue("@IngredienteId", ingrediente.Id);
-
                 ingredientesCommand.ExecuteNonQuery();
             }
         }
@@ -136,7 +164,6 @@ public class PizzaSqlRepository : IPizzaRepository
         {
             connection.Open();
 
-            // Primero eliminamos todas las entradas relacionadas de PizzaIngrediente
             var deleteIngredientsSql = "DELETE FROM PizzaIngrediente WHERE PizzaId = @PizzaId";
             using (var deleteIngredientsCmd = new SqlCommand(deleteIngredientsSql, connection))
             {
@@ -144,7 +171,6 @@ public class PizzaSqlRepository : IPizzaRepository
                 deleteIngredientsCmd.ExecuteNonQuery();
             }
 
-            // Luego eliminamos la pizza de la tabla Pizza
             var deletePizzaSql = "DELETE FROM Pizza WHERE PizzaId = @PizzaId";
             using (var deletePizzaCmd = new SqlCommand(deletePizzaSql, connection))
             {
@@ -154,7 +180,6 @@ public class PizzaSqlRepository : IPizzaRepository
         }
     }
 
-
     public void Put(Pizza pizza)
     {
         using (var connection = new SqlConnection(_connectionString))
@@ -163,7 +188,6 @@ public class PizzaSqlRepository : IPizzaRepository
             using (var transaction = connection.BeginTransaction())
             {
 
-                // Actualizar la pizza
                 var updatePizzaSql = @"
                     UPDATE Pizza 
                     SET Nombre = @Nombre, Precio = @Precio, IsGluten = @IsGluten 
@@ -178,7 +202,6 @@ public class PizzaSqlRepository : IPizzaRepository
                     updatePizzaCmd.ExecuteNonQuery();
                 }
 
-                // Eliminar ingredientes actuales
                 var deleteIngredientsSql = "DELETE FROM PizzaIngrediente WHERE PizzaId = @PizzaId";
                 using (var deleteIngredientsCmd = new SqlCommand(deleteIngredientsSql, connection, transaction))
                 {
@@ -186,7 +209,6 @@ public class PizzaSqlRepository : IPizzaRepository
                     deleteIngredientsCmd.ExecuteNonQuery();
                 }
 
-                // Insertar nuevos ingredientes
                 foreach (var ingrediente in pizza.Ingredients)
                 {
                     var insertIngredientSql = "INSERT INTO PizzaIngrediente (PizzaId, IngredienteId) VALUES (@PizzaId, @IngredienteId)";
@@ -197,11 +219,7 @@ public class PizzaSqlRepository : IPizzaRepository
                         insertIngredientCmd.ExecuteNonQuery();
                     }
                 }
-
-                // Si todo va bien, hacemos commit a la transacción
-                transaction.Commit();
             }
-
         }
     }
 }
