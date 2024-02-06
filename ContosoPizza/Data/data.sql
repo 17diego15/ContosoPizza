@@ -25,7 +25,11 @@ CREATE TABLE PizzaIngrediente (
     FOREIGN KEY (IngredienteId) REFERENCES Ingrediente(IngredienteId)
 );
 
-
+CREATE TABLE Usuario (
+    UsuarioId INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre NVARCHAR(500) NOT NULL,
+    Direccion NVARCHAR(500) NOT NULL,
+);
 
  INSERT INTO Pizza (Nombre, Precio, IsGluten)
  VALUES ('Barbacoa', 10.99, 1),
@@ -34,6 +38,9 @@ CREATE TABLE PizzaIngrediente (
 INSERT INTO Ingrediente (Nombre, Precio, Calorias)
  VALUES ('Queso', 1.5, 12),
         ('Salsa barbacoa', 0.75, 1);
+
+INSERT INTO Usuario (Nombre, Direccion)
+ VALUES ('Diego Gimenez Sancho', 'Poeta Leon Felipe')
 
 INSERT INTO PizzaIngrediente (PizzaId, IngredienteId) 
     VALUES (1, 1); 
