@@ -63,12 +63,11 @@ public class IngredientesSqlRepository : IIngredientesRepository
                 {
                     ingrediente = new Ingrediente
                     {
-                        Id = Convert.ToInt32(reader["PizzaId"]),
+                        Id = Convert.ToInt32(reader["IngredienteId"]),
                         Nombre = reader["Nombre"].ToString(),
                         Precio = Convert.ToDecimal(reader["Precio"]),
                         Calorias = Convert.ToDecimal(reader["Calorias"])
                     };
-                    reader.Close();
                 }
             }
 
