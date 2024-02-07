@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hxW5Fvah/WfuYXfVzLwmJ1AymUHh/l9BlNVEE8Mw44g6GuEsHiE48s0Ofy0AGyUGznPOJ6w9YHLSIqykwg4SdQ==",
+  "dgSpecHash": "sLkw5ca9/i630NzW+snGtP8HrkQf0B7iMdJV5iMEywmywSCzn6WkKkRXTg8Y2z1vTWYQc8WiEkmFqcJhaD4Ilw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\S2-PC00\\Downloads\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj",
+  "projectFilePath": "C:\\Users\\S2-PC00\\Downloads\\BankApp_ADO.NET_EF\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

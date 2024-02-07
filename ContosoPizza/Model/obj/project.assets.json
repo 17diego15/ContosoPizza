@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\S2-PC00\\Downloads\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj",
+      "projectUniqueName": "C:\\Users\\S2-PC00\\Downloads\\BankApp_ADO.NET_EF\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj",
       "projectName": "ContosoPizza.Model",
-      "projectPath": "C:\\Users\\S2-PC00\\Downloads\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj",
+      "projectPath": "C:\\Users\\S2-PC00\\Downloads\\BankApp_ADO.NET_EF\\ContosoPizza\\ContosoPizza\\Model\\ContosoPizza.Model.csproj",
       "packagesPath": "C:\\Users\\S2-PC00\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\S2-PC00\\Downloads\\ContosoPizza\\ContosoPizza\\Model\\obj\\",
+      "outputPath": "C:\\Users\\S2-PC00\\Downloads\\BankApp_ADO.NET_EF\\ContosoPizza\\ContosoPizza\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
