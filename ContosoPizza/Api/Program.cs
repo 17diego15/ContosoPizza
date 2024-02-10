@@ -23,12 +23,15 @@ builder.Services.AddScoped<IPizzaRepository, PizzaSqlRepository>(serviceProvider
 builder.Services.AddScoped<IIngredientesRepository, IngredientesSqlRepository>(serviceProvider => 
     new IngredientesSqlRepository(connectionString));
 
- builder.Services.AddScoped<IUsuarioRepository, UsuarioSqlRepository>(serviceProvider => 
+builder.Services.AddScoped<IUsuarioRepository, UsuarioSqlRepository>(serviceProvider => 
      new UsuarioSqlRepository(connectionString));
+
+builder.Services.AddScoped<IPedidoRepository, PedidoSqlRepository>(serviceProvider => 
+     new PedidoSqlRepository(connectionString));
 
 
 builder.Services.AddScoped<PizzaService>();
-//builder.Services.AddScoped<PedidoService>();  //añadir despues
+builder.Services.AddScoped<PedidoService>();  //añadir despues
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<IngredientesService>();
 

@@ -28,7 +28,23 @@ CREATE TABLE PizzaIngrediente (
 CREATE TABLE Usuario (
     UsuarioId INT IDENTITY(1,1) PRIMARY KEY,
     Nombre NVARCHAR(500) NOT NULL,
-    Direccion NVARCHAR(500) NOT NULL,
+    Direccion NVARCHAR(500) NOT NULL
+);
+
+CREATE TABLE Pedidos (
+    PedidoId INT IDENTITY(1,1) PRIMARY KEY,
+    Precio DECIMAL(18, 2) NOT NULL,
+    UsuarioId INT,
+    FechaPedido DATETIME NOT NULL,
+    FOREIGN KEY (UsuarioId) REFERENCES Usuario(UsuarioId)
+);
+
+CREATE TABLE PedidoPizzas (
+    PedidoId INT,
+    PizzaId INT,
+    PRIMARY KEY (PedidoId, PizzaId),
+    FOREIGN KEY (PedidoId) REFERENCES Pedidos(PedidoId),
+    FOREIGN KEY (PizzaId) REFERENCES Pizza(PizzaId)
 );
 
  INSERT INTO Pizza (Nombre, Precio, IsGluten)
