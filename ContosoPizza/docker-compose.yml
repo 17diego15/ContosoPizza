@@ -1,40 +1,37 @@
 version: '3.4'
- 
-networks: #useful for connect API to DB by service name in appsettings (for example, "ServerDB": "Server=db;) 
-    backend:       
+
+networks:
+  backend:
 
 volumes:
-    sqlserver-data:
-        driver: local
+  sqlserver-data:
+    driver: local
 
 services:
-    db:
-        #container_name: dbContainer
-        image: mcr.microsoft.com/mssql/server:2019-CU21-ubuntu-20.04
-        ports:
-            - 8002:1433 #never change internal port!!!
-        networks:
-            - backend
-        volumes:
-            - sqlserver-data:/var/opt/mssql #mounted volumen in Docker
-            #- D:/sqlserver-data:/var/opt/mssql  #bind mounted in Windows
-            #- ~/sqlserver-data:/var/opt/mssql  #bind mounted in Linux/Mac
-        environment:    #more secure if you use an .env file
-            - ACCEPT_EULA=Y
-            - MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>
-    api:
-        #container_name: apiContainer
-        #image: apidb-dockerdemo:1.2
-        ports:
-            - 8001:80   #never change internal port!!!
-        networks:
-            - backend
-        build:
-          context: .
-          dockerfile: Api/Dockerfile
-        depends_on:
-            - db    #API without db running is useless
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-CU21-ubuntu-20.04
+    ports:
+      - "8002:1433"
+    networks:
+      - backend
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>
 
+  api:
+    build:
+      context: .
+      dockerfile: Api/Dockerfile
+    ports:
+      - "8001:80"
+    networks:
+      - backend
+    depends_on:
+      - db
+    environment:
+      - DOCKER_CONTAINER=true
    # web:
         #container_name: webContainer
    #     image: web:1.0
