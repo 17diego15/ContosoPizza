@@ -5,17 +5,17 @@ public class Pedido
 {
     [Key]
     public int Id { get; set; }
-        [Required] 
 
+    [Required]
     public List<Pizza> Pizzas { get; set; } = new List<Pizza>();
-        [Required] 
 
+    [Required]
     public decimal Precio { get; set; }
-        [Required] 
 
-    public Usuario? Usuario { get; set; } 
-    [Required] 
+    [Required]
+    public Usuario? Usuario { get; set; }
 
-    public DateTime FechaPedido {get; set;}
-    
+    [Required]
+    public DateTime FechaPedido { get; set; }
+
 }

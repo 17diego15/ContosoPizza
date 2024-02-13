@@ -90,6 +90,54 @@ namespace ContosoPizza.Data.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "PizzaPedidos",
+                columns: table => new
+                {
+                    PizzaId = table.Column<int>(type: "int", nullable: false),
+                    PedidoId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PizzaPedidos", x => new { x.PizzaId, x.PedidoId });
+                    table.ForeignKey(
+                        name: "FK_PizzaPedidos_Pedidos_PedidoId",
+                        column: x => x.PedidoId,
+                        principalTable: "Pedidos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PizzaPedidos_Pizzas_PizzaId",
+                        column: x => x.PizzaId,
+                        principalTable: "Pizzas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PizzaIngredientes",
+                columns: table => new
+                {
+                    PizzaId = table.Column<int>(type: "int", nullable: false),
+                    IngredienteId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PizzaIngredientes", x => new { x.PizzaId, x.IngredienteId });
+                    table.ForeignKey(
+                        name: "FK_PizzaIngredientes_Ingredientes_IngredienteId",
+                        column: x => x.IngredienteId,
+                        principalTable: "Ingredientes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PizzaIngredientes_Pizzas_PizzaId",
+                        column: x => x.PizzaId,
+                        principalTable: "Pizzas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Ingredientes",
                 columns: new[] { "Id", "Calorias", "Nombre", "PizzaId", "Precio" },
@@ -113,6 +161,16 @@ namespace ContosoPizza.Data.Migrations
                 columns: new[] { "Id", "Dirección", "Nombre" },
                 values: new object[] { 1, "Poeta Leon Felipe", "Diego Gimenez Sancho" });
 
+            migrationBuilder.InsertData(
+                table: "PizzaIngredientes",
+                columns: new[] { "IngredienteId", "PizzaId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 2, 1 },
+                    { 2, 2 }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Ingredientes_PizzaId",
                 table: "Ingredientes",
@@ -124,6 +182,16 @@ namespace ContosoPizza.Data.Migrations
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_PizzaIngredientes_IngredienteId",
+                table: "PizzaIngredientes",
+                column: "IngredienteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PizzaPedidos_PedidoId",
+                table: "PizzaPedidos",
+                column: "PedidoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Pizzas_PedidoId",
                 table: "Pizzas",
                 column: "PedidoId");
@@ -132,6 +200,12 @@ namespace ContosoPizza.Data.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "PizzaIngredientes");
+
+            migrationBuilder.DropTable(
+                name: "PizzaPedidos");
+
             migrationBuilder.DropTable(
                 name: "Ingredientes");
 

@@ -1,14 +1,15 @@
 namespace ContosoPizza.Models;
 using System.ComponentModel.DataAnnotations;
 
-public class Usuario {
+public class Usuario
+{
     [Key]
-    public int Id{ get; set;}
+    public int Id { get; set; }
 
-    [Required] 
+    [Required]
     public string? Nombre { get; set; }
-    
-    [Required] 
-    public string? Dirección {get; set;}
-    
+
+    [Required]
+    public string? Dirección { get; set; }
+
 }

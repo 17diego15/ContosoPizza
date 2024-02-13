@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContosoPizza.Data.Migrations
 {
     [DbContext(typeof(ContosoPizzaContext))]
-    [Migration("20240211094254_InitialCreate")]
+    [Migration("20240213123944_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -137,6 +137,53 @@ namespace ContosoPizza.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ContosoPizza.Models.PizzaIngrediente", b =>
+                {
+                    b.Property<int>("PizzaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IngredienteId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PizzaId", "IngredienteId");
+
+                    b.HasIndex("IngredienteId");
+
+                    b.ToTable("PizzaIngredientes");
+
+                    b.HasData(
+                        new
+                        {
+                            PizzaId = 1,
+                            IngredienteId = 1
+                        },
+                        new
+                        {
+                            PizzaId = 1,
+                            IngredienteId = 2
+                        },
+                        new
+                        {
+                            PizzaId = 2,
+                            IngredienteId = 2
+                        });
+                });
+
+            modelBuilder.Entity("ContosoPizza.Models.PizzaPedido", b =>
+                {
+                    b.Property<int>("PizzaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PedidoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PizzaId", "PedidoId");
+
+                    b.HasIndex("PedidoId");
+
+                    b.ToTable("PizzaPedidos");
+                });
+
             modelBuilder.Entity("ContosoPizza.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -189,6 +236,36 @@ namespace ContosoPizza.Data.Migrations
                     b.HasOne("ContosoPizza.Models.Pedido", null)
                         .WithMany("Pizzas")
                         .HasForeignKey("PedidoId");
+                });
+
+            modelBuilder.Entity("ContosoPizza.Models.PizzaIngrediente", b =>
+                {
+                    b.HasOne("ContosoPizza.Models.Ingrediente", null)
+                        .WithMany()
+                        .HasForeignKey("IngredienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ContosoPizza.Models.Pizza", null)
+                        .WithMany()
+                        .HasForeignKey("PizzaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ContosoPizza.Models.PizzaPedido", b =>
+                {
+                    b.HasOne("ContosoPizza.Models.Pedido", null)
+                        .WithMany()
+                        .HasForeignKey("PedidoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ContosoPizza.Models.Pizza", null)
+                        .WithMany()
+                        .HasForeignKey("PizzaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ContosoPizza.Models.Pedido", b =>

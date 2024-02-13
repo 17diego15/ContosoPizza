@@ -3,7 +3,7 @@ namespace ContosoPizza.Models;
 
 public class Pizza {
 
-    [Key] //clave principal
+    [Key] 
     public int Id{ get; set;}
 
     [Required] 
