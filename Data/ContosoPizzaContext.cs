@@ -50,8 +50,8 @@ namespace ContosoPizza.Data
                 .WithMany()
                 .HasForeignKey(pi => pi.PedidoId);
             modelBuilder.Entity<Pizza>().HasData(
-                new Pizza { Id = 1, Name = "Classic Italian", Price = 7.02m },
-                new Pizza { Id = 2, Name = "Vegetariana", Price = 6.77m }
+                new Pizza { Id = 1, Name = "Classic Italian", Price = 6.6m },
+                new Pizza { Id = 2, Name = "Vegetariana", Price = 3.6m }
                 );
             modelBuilder.Entity<Ingrediente>().HasData(
                 new Ingrediente { Id = 1, Nombre = "Tomate", Precio = 1, Calorias = 21 },
